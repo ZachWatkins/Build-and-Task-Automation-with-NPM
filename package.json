@@ -1,0 +1,27 @@
+{
+	"name": "myproject",
+	"description": "Testing NPM as a build management tool.",
+	"dependencies": {
+		"zurb-foundation-5": "~5.4.7"
+	},
+	"devDependencies": {
+		"coffee-script": "~1.9.2",
+		"compass": "~0.1.1",
+		"parallelshell": "~1.1.1",
+		"nodemon": "~1.3.7"
+	},
+	"scripts": {
+		"once": "npm run once:packages && npm run once:compass",
+		"once:packages": "npm install",
+		"once:compass": "compass create --import-path node_modules/zurb-foundation-5/scss --css-dir css --sass-dir css/src --images-dir img --javascripts-dir js --fonts-dir font --output-style expanded --relative-assets --quiet",
+		
+		"build": "npm run build:js -s && npm run build:css -s",
+		"build:js": "coffee --compile --output js/ js/src/",
+		"build:css": "compass compile",
+		
+		"watch": "parallelshell \"npm run watch:css -s\" \"npm run watch:js -s\"",
+		"watch:css": "nodemon --quiet --watch css/ --ext scss --exec 'npm run build:css'",
+		"watch:js": "nodemon --quiet --watch js/ --ext coffee --exec 'npm run build:js'",
+		"watch:build": "nodemon --quiet --watch js/ --watch css/ --ext scss,coffee --exec 'npm run build'"
+	}
+}
