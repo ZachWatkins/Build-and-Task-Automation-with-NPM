@@ -11,7 +11,7 @@
 		"nodemon": "~1.3.7"
 	},
 	"scripts": {
-		"once": "npm run once:packages && npm run once:compass",
+		"once": "npm run once:packages && npm run once:compass && npm run watch",
 		"once:packages": "npm install",
 		"once:compass": "compass create --import-path node_modules/zurb-foundation-5/scss --css-dir css --sass-dir css/src --images-dir img --javascripts-dir js --fonts-dir font --output-style expanded --relative-assets --quiet",
 		
