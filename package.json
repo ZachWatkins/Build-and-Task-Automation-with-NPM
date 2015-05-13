@@ -20,8 +20,7 @@
 		"build:css": "compass compile",
 		
 		"watch": "parallelshell \"npm run watch:css -s\" \"npm run watch:js -s\"",
-		"watch:css": "nodemon --quiet --watch css/ --ext scss --exec 'npm run build:css'",
 		"watch:js": "nodemon --quiet --watch js/ --ext coffee --exec 'npm run build:js'",
-		"watch:build": "nodemon --quiet --watch js/ --watch css/ --ext scss,coffee --exec 'npm run build'"
+		"watch:css": "nodemon --quiet --watch css/ --ext scss --exec 'npm run build:css'"
 	}
 }
